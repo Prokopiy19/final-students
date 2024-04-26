@@ -1,4 +1,4 @@
-#include <cstddef> // for std::size_t
+#include <cstddef> // для std::size_t
 #include <iostream>
 #include <memory>
 #include <unordered_map>
@@ -48,12 +48,11 @@ int main()
     db.insert(Student{4, "Tyler", 19});
     db.insert(Student{5, "Rex", 18});
     
+    auto student = db.get_student_info(3);
+    std::cout << "student with id=3 " << student.name << " age=" << student.age << '\n';
     if (db.remove_student(3) == 1) {
         std::cout << "deleted student with id = 3\n";
     };
-    
-    auto student = db.get_student_info(4);
-    std::cout << "student with id=4 " << student.name << " age=" << student.age << '\n';
-    student = db.get_student_info(6);
-    std::cout << "student with id=6 " << student.name << " age=" << student.age << '\n';
+    student = db.get_student_info(3);
+    std::cout << "student with id=3 " << student.name << " age=" << student.age << '\n';
 }
